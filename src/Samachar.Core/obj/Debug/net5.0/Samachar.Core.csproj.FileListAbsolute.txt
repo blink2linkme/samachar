@@ -1,0 +1,9 @@
+D:\privateprojects\realapps\webndesk\samachar\src\Samachar.Core\bin\Debug\net5.0\Samachar.Core.deps.json
+D:\privateprojects\realapps\webndesk\samachar\src\Samachar.Core\bin\Debug\net5.0\Samachar.Core.dll
+D:\privateprojects\realapps\webndesk\samachar\src\Samachar.Core\obj\Debug\net5.0\Samachar.Core.csprojAssemblyReference.cache
+D:\privateprojects\realapps\webndesk\samachar\src\Samachar.Core\obj\Debug\net5.0\Samachar.Core.AssemblyInfoInputs.cache
+D:\privateprojects\realapps\webndesk\samachar\src\Samachar.Core\obj\Debug\net5.0\Samachar.Core.AssemblyInfo.cs
+D:\privateprojects\realapps\webndesk\samachar\src\Samachar.Core\bin\Debug\net5.0\Samachar.Core.pdb
+D:\privateprojects\realapps\webndesk\samachar\src\Samachar.Core\obj\Debug\net5.0\Samachar.Core.csproj.CoreCompileInputs.cache
+D:\privateprojects\realapps\webndesk\samachar\src\Samachar.Core\obj\Debug\net5.0\Samachar.Core.dll
+D:\privateprojects\realapps\webndesk\samachar\src\Samachar.Core\obj\Debug\net5.0\Samachar.Core.pdb

@@ -1,0 +1,15 @@
+.vs/
+.vscode/
+src/DbProvider/Samachar.Data.PostgreSQL/bin/
+src/DbProvider/Samachar.Data.PostgreSQL/obj/
+src/Samachar.API/bin/
+src/Samachar.API/obj/
+src/Samachar.Domain/obj/
+src/Samachar.Repository/bin/
+src/Samachar.Repository/obj/
+src/Samachar.Service/bin/
+src/Samachar.Service/obj/
+src/Samachar/bin/
+src/Samachar/obj/
+tests/UnitTesting/Samachar.Service.Tests/bin/
+tests/UnitTesting/Samachar.Service.Tests/obj/
