@@ -1,13 +1,13 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Samachar.Data.SqlServer;
+using Samachar.Repository;
+using Samachar.Service;
 
 namespace Samachar
 {
@@ -23,7 +23,24 @@ namespace Samachar
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //PostgreSQLs
+            //services.AddEntityFrameworkNpgsql().AddDbContext<SamacharDbContext>(options => options.UseNpgsql(Configuration.GetConnectionString("PostgreSQLConnection")));
+            services.AddDbContext<SamacharDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            // PostgreSQL
             services.AddControllersWithViews();
+
+            services.AddScoped(p => p.GetService<SamacharDbContext>());
+
+            // Repository Registration
+            services.AddTransient<ICategoryRepository, CategoryRepository>();
+
+            // Service Registration
+            services.AddTransient<IUtilityService, UtilityService>();
+            services.AddTransient<ICategoryService, CategoryService>();
+ 
+
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -29,17 +29,14 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach (var article in Model)
-                            {
-                <tr class="gradeU">
-                    <td>@(++i)</td>
-                    <td>@*<img src="@article.BaseImagePath" class="img img-rounded" height="50" width="50" />*@<span class="">&nbsp;&nbsp;@article.Title</span></td>
-                    @*<td>@article.ShortDescription</td>
-                        <td>@article.PublishDate</td>*@
-                    <td class="center">@(article.IsActive ? "Active" : "Inactive")</td>
-                    <td class="center"><a href="/Admin/Article/Get/@article.Id" class="fGroup-edi" id="@article.Id">Edit</a> | <a href="javascript:void(0);" class="fGroup-del" id="@article.Id">Delete</a></td>
-                </tr>
-}
+                            <tr>
+                                <td>1</td>
+                                <td>Fuck</td>
+                                <td>Title</td>
+                                <td>2020</td>
+                                <td>Active</td>
+                                <td>Delete | Edit</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>

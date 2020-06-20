@@ -42,6 +42,7 @@
                 // Bootstrap ID
                 gtag('config', 'UA-118965717-5');
             </script>*@
+    @await RenderSectionAsync("Stylesheets", required:false)
 </head>
 <body class="c-app">
     <div class="c-sidebar c-sidebar-dark c-sidebar-fixed c-sidebar-lg-show" id="sidebar">
@@ -63,17 +64,24 @@
             </li>
             <li class="c-sidebar-nav-title">Theme</li>
             <li class="c-sidebar-nav-item">
-                <a class="c-sidebar-nav-link" href="colors.html">
+                <a class="c-sidebar-nav-link" href="~/article">
                     <svg class="c-sidebar-nav-icon">
                         <use xlink:href="/Theme/coreui/vendors/@@coreui/icons/svg/free.svg#cil-pencil"></use>
                     </svg> Article
                 </a>
             </li>
             <li class="c-sidebar-nav-item">
-                <a class="c-sidebar-nav-link" href="colors.html">
+                <a class="c-sidebar-nav-link" href="~/advertisement">
                     <svg class="c-sidebar-nav-icon">
                         <use xlink:href="/Theme/coreui/vendors/@@coreui/icons/svg/free.svg#cil-drop1"></use>
                     </svg> Advertisement
+                </a>
+            </li>
+            <li class="c-sidebar-nav-item">
+                <a class="c-sidebar-nav-link" href="~/category">
+                    <svg class="c-sidebar-nav-icon">
+                        <use xlink:href="/Theme/coreui/vendors/@@coreui/icons/svg/free.svg#cil-calculator"></use>
+                    </svg> Category
                 </a>
             </li>
             <li class="c-sidebar-nav-title">Components</li>
@@ -316,8 +324,9 @@
         <div class="c-body">
             <main class="c-main">
                 <div class="container-fluid">
-                    <div class="fade-in"></div>
-                    @RenderBody()
+                    <div class="fade-in">
+                        @RenderBody()
+                    </div>
                 </div>
             </main>
             <footer class="c-footer">
@@ -327,10 +336,11 @@
         </div>
     </div>
     <!-- CoreUI and necessary plugins-->
-    <script src="/Theme/coreui/vendors/@@coreui/coreui/js/coreui.bundle.min.js"></script>
+    <script src="~/Theme/coreui/vendors/@@coreui/coreui/js/coreui.bundle.min.js"></script>
     <!--[if IE]><!-->
-    <script src="/Theme/coreui/vendors/@@coreui/icons/js/svgxuse.min.js"></script>
+    <script src="~/Theme/coreui/vendors/@@coreui/icons/js/svgxuse.min.js"></script>
     <!--<![endif]-->
+    <script src="~/lib/jquery/dist/jquery.min.js" type="text/javascript"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

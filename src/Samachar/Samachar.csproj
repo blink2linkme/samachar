@@ -1,7 +1,7 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
@@ -9,6 +9,13 @@
     <Content Remove="wwwroot\Theme\**" />
     <EmbeddedResource Remove="wwwroot\Theme\**" />
     <None Remove="wwwroot\Theme\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="appsettings.Development.json" />
+    <Content Remove="appsettings.json" />
+    <Content Remove="Views\Article\Add - Copy.cshtml" />
+    <Content Remove="Views\Article\Index - Copy.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -97,6 +104,15 @@
     <Content Include="wwwroot\Theme\coreui\vendors\pace-progress\css\pace.css" />
     <Content Include="wwwroot\Theme\coreui\vendors\pace-progress\css\pace.min.css" />
     <Content Include="wwwroot\Theme\coreui\widgets.html" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="appsettings.Development.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>
@@ -1285,6 +1301,18 @@
     <None Include="wwwroot\Theme\coreui\vendors\%40coreui\utils\js\coreui-utils.js" />
     <None Include="wwwroot\Theme\coreui\vendors\pace-progress\css\pace.css.map" />
     <None Include="wwwroot\Theme\coreui\vendors\pace-progress\css\pace.min.css.map" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 
   <ItemGroup>

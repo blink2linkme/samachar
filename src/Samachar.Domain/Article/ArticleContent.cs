@@ -1,5 +1,6 @@
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Samachar.Domain
 {
@@ -15,6 +16,8 @@ namespace Samachar.Domain
         [Required]
         [StringLength(int.MaxValue, ErrorMessage = "Lenght Not Valid!", MinimumLength = 10)]
         public string Content { get; set; }
+        public int ArticleId { get; set; }
+        [ForeignKey("ArticleId")]
         public virtual Article Article { get; set; }
     }
 }

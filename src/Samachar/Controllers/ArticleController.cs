@@ -1,7 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Samachar.Domain;
 using Samachar.Service;
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Samachar.Controllers
@@ -9,9 +13,11 @@ namespace Samachar.Controllers
     public class ArticleController : Controller
     {
         private readonly IArticleService _articleService;
-        public ArticleController()
-        {
+        private readonly IUtilityService _utilityService;
 
+        public ArticleController(IUtilityService utilityService)
+        {
+            _utilityService = utilityService;
         }
 
         public async Task<ActionResult> Index()
@@ -20,6 +26,8 @@ namespace Samachar.Controllers
             {
                 //var articles = await _articleService.GetAsync();
                 //return View(articles);
+                ViewBag.Categories = new List<Category>();
+                ViewBag.ArticleTypes = _utilityService.ArticleTypes().Select(x => new SelectListItem { Text = x.ToString(), Value = ((int)x).ToString() });
                 return View();
             }
             catch (Exception ex)
