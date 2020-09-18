@@ -9,8 +9,8 @@ namespace Samachar.Data.MSSQL.Configuration
         public void Configure(EntityTypeBuilder<ArticleContent> builder)
         {
             builder.HasKey(x => x.Id);
-            builder.Property(x => x.ShortDescription).IsRequired().HasColumnType("nvarchar(100)");
-            builder.Property(x => x.Content).IsRequired().HasColumnType("nvarchar(2000)");
+            builder.Property(x => x.ShortDescription).IsRequired().HasColumnType("nvarchar(500)");
+            builder.Property(x => x.Content).IsRequired().HasColumnType("nvarchar(max)");
             builder.HasOne(x => x.Article).WithOne(x => x.ArticleContent).HasForeignKey<ArticleContent>(x => x.Id);
         }
     }

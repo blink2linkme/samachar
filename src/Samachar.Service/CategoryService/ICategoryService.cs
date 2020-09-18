@@ -1,4 +1,5 @@
 ﻿using Samachar.Domain;
+using Samachar.Domain.ViewModels;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -12,8 +13,16 @@ namespace Samachar.Service
         /// <summary>
         /// Returns the Collection of Category
         /// </summary>
+        /// <param name="page">Page Number</param>
+        /// <param name="rows">Number or Rows</param>
         /// <returns>Category Collection</returns>
-        Task<ICollection<Category>> GetCategoriesAsync();
+        Task<CategoryViewModel> GetCategoriesAsync(int page, int rows, string search);
+
+        /// <summary>
+        /// Returns the Collection of Category
+        /// </summary>
+        /// <returns>Category Collection</returns>
+        Task<IEnumerable<Category>> GetCategoriesAsync();
 
         /// <summary>
         /// Add or Update the Category
@@ -28,5 +37,18 @@ namespace Samachar.Service
         /// <param name="id">Category Identifier</param>
         /// <returns>Category Object</returns>
         Task<Category> GetCategoryAsync(int id);
+
+        /// <summary>
+        /// Delete the category
+        /// </summary>
+        /// <param name="id">Identifier</param>
+        /// <returns>Returns True or False</returns>
+        Task<bool> DeleteAsync(int id);
+
+        /// <summary>
+        /// Sequence of Categories
+        /// </summary>
+        /// <returns>Collection of category</returns>
+        Task<ICollection<Category>> GetSequenceCategoriesAsync();
     }
 }

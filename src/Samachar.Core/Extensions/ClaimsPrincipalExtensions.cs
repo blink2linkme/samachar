@@ -10,10 +10,9 @@ namespace Samachar.Core.Extensions
     {
         public static string GetUserId(this ClaimsPrincipal principal)
         {
-            //if (principal == null)
-            //    throw new ArgumentException(nameof(principal));
-            //return principal.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-            return "1";
+            if (principal == null)
+                throw new ArgumentException(nameof(principal));
+            return principal.FindFirst(ClaimTypes.NameIdentifier)?.Value;
         }
     }
 }

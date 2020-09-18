@@ -3,7 +3,7 @@
     ViewBag.Title = "Add Category";
 }
 <div class="card">
-    <form class="form-horizontal" asp-action="Create" novalidate asp-antiforgery="true" enctype="multipart/form-data" method="post">
+    <form class="form-horizontal" asp-action="Add" novalidate asp-antiforgery="true" enctype="multipart/form-data" method="post">
         <div class="card-header">
             Category
         </div>
@@ -16,9 +16,9 @@
                     <span asp-validation-for="Name" class="text-danger"></span>
                 </div>
                 <div class="col">
-                    <label class="form-col-form-label" asp-for="Image.Picture"></label>
-                    <input asp-for="Image.Picture" class="form-control" type="file" />
-                    <span asp-validation-for="Image.Picture" class="text-danger"></span>
+                    <label class="form-col-form-label" asp-for="Picture"></label>
+                    <input asp-for="Picture" class="form-control" type="file" />
+                    <span asp-validation-for="Picture" class="text-danger"></span>
                 </div>
             </div>
             <div class="form-group row">

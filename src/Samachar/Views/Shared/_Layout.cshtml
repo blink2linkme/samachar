@@ -42,7 +42,7 @@
                 // Bootstrap ID
                 gtag('config', 'UA-118965717-5');
             </script>*@
-    @await RenderSectionAsync("Stylesheets", required:false)
+    @await RenderSectionAsync("Stylesheets", required: false)
 </head>
 <body class="c-app">
     <div class="c-sidebar c-sidebar-dark c-sidebar-fixed c-sidebar-lg-show" id="sidebar">
@@ -82,6 +82,13 @@
                     <svg class="c-sidebar-nav-icon">
                         <use xlink:href="/Theme/coreui/vendors/@@coreui/icons/svg/free.svg#cil-calculator"></use>
                     </svg> Category
+                </a>
+            </li>
+            <li class="c-sidebar-nav-item">
+                <a class="c-sidebar-nav-link" href="~/tag">
+                    <svg class="c-sidebar-nav-icon">
+                        <use xlink:href="/Theme/coreui/vendors/@@coreui/icons/svg/free.svg#cil-puzzle"></use>
+                    </svg> Tag
                 </a>
             </li>
             <li class="c-sidebar-nav-title">Components</li>
@@ -303,7 +310,8 @@
                             <svg class="c-icon mr-2">
                                 <use xlink:href="/Theme/coreui/vendors/@@coreui/icons/svg/free.svg#cil-lock-locked"></use>
                             </svg> Lock Account
-                        </a><a class="dropdown-item" href="#">
+                        </a>
+                        <a class="dropdown-item" href="~/Account/Logout">
                             <svg class="c-icon mr-2">
                                 <use xlink:href="/Theme/coreui/vendors/@@coreui/icons/svg/free.svg#cil-account-logout"></use>
                             </svg> Logout

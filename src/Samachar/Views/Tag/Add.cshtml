@@ -1,0 +1,33 @@
+﻿@model Samachar.Domain.Tag
+@{
+    ViewBag.Title = "Add Tag";
+}
+<div class="card">
+    <form class="form-horizontal" asp-action="Add" novalidate asp-antiforgery="true" enctype="multipart/form-data" method="post">
+        <div class="card-header">
+            Tag
+        </div>
+        <div class="card-body">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group row">
+                <div class="col">
+                    <label class="form-col-form-label" asp-for="Name"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="col">
+                    <label class="form-col-form-label" asp-for="IsActive"></label><br />
+                    <input asp-for="IsActive" type="checkbox" checked />
+                    <span asp-validation-for="IsActive" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer">
+            <button class="btn btn-sm btn-primary" type="submit">Submit</button>
+            <button class="btn btn-sm btn-danger" type="reset">Reset</button>
+        </div>
+    </form>
+</div>
+@section BreadCrum{
+    <li class="breadcrumb-item active">Tag</li>
+}

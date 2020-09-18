@@ -1,9 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
-using Samachar.Data.SqlServer;
-using Samachar.Domain;
-using System;
+﻿using Samachar.Domain;
+using Samachar.Domain.ViewModels;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -14,6 +10,14 @@ namespace Samachar.Repository
     /// </summary>
     public interface ICategoryRepository
     {
+        /// <summary>
+        /// Get the Categories from Data source
+        /// </summary>
+        /// <param name="page">Page Number</param>
+        /// <param name="rows">Number or Rows</param>
+        /// <returns>Collection of Category</returns>
+        Task<CategoryViewModel> GetCategoriesAsync(int page, int rows, string search);
+
         /// <summary>
         /// Get the Categories from Data source
         /// </summary>
@@ -33,51 +37,18 @@ namespace Samachar.Repository
         /// <param name="id">Category Identifier</param>
         /// <returns>Category Object</returns>
         Task<Category> GetCategoryAsync(int id);
-    }
-    public class CategoryRepository : ICategoryRepository
-    {
-        private readonly ILogger<CategoryRepository> _logger;
-        private readonly SamacharDbContext _dbContext;
-        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public CategoryRepository(SamacharDbContext dbContext, IHttpContextAccessor httpContextAccessor, ILogger<CategoryRepository> logger)
-        {
-            _dbContext = dbContext;
-            _httpContextAccessor = httpContextAccessor;
-            _logger = logger;
-        }
+        /// <summary>
+        /// Delete the Category
+        /// </summary>
+        /// <param name="id">Identifier</param>
+        /// <returns>Returns True or False</returns>
+        Task<bool> DeleteAsync(int id);
 
-        public async Task<int> AddOrUpdate(Category category)
-        {
-            //if (category.Id == 0)
-            //{
-            //    category.CreatedBy = Convert.ToInt32(_httpContextAccessor.HttpContext.User.GetUserId());
-            //    category.CreatedOn = DateTime.UtcNow;
-            //    category.UpdatedBy = Convert.ToInt32(_httpContextAccessor.HttpContext.User.GetUserId());
-            //    category.UpdatedOn = DateTime.UtcNow;
-            //    _dbContext.Category.Add(category);
-            //}
-            //else
-            //{
-            //    category.UpdatedBy = Convert.ToInt32(_httpContextAccessor.HttpContext.User.GetUserId());
-            //    category.UpdatedOn = DateTime.UtcNow;
-            //    _dbContext.Category.Update(category);
-            //}
-            //_logger.LogInformation(category.ToString());
-            //int result = await _dbContext.SaveChangesAsync();
-            //_logger.LogInformation(result.ToString());
-            //return result;
-            return 1;
-        }
-
-        public async Task<ICollection<Category>> GetCategoriesAsync()
-        {
-            return null;// await _dbContext.Category.ToListAsync();
-        }
-
-        public async Task<Category> GetCategoryAsync(int id)
-        {
-            return null; // await _dbContext.Category.FindAsync(id);
-        }
+        /// <summary>
+        /// Sequence of Categories
+        /// </summary>
+        /// <returns>Collection of category</returns>
+        Task<ICollection<Category>> GetSequenceCategoriesAsync();
     }
 }

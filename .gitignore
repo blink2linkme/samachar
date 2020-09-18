@@ -2,6 +2,10 @@
 .vscode/
 src/DbProvider/Samachar.Data.PostgreSQL/bin/
 src/DbProvider/Samachar.Data.PostgreSQL/obj/
+src/DbProvider/Samachar.Data.MSSQL/bin/
+src/DbProvider/Samachar.Data.MSSQL/obj/
+src/DbProvider/Samachar.Data.SqlServer/bin/
+src/DbProvider/Samachar.Data.SqlServer/obj/
 src/Samachar.API/bin/
 src/Samachar.API/obj/
 src/Samachar.Domain/bin/

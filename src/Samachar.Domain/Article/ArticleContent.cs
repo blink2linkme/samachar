@@ -11,6 +11,7 @@ namespace Samachar.Domain
     {
         public int Id { get; set; }
         [DisplayName("Short Description")]
+        [Required]
         public string ShortDescription { get; set; }
         [DisplayName("Content")]
         [Required]

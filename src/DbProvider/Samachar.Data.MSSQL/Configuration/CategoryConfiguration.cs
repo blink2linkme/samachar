@@ -9,10 +9,11 @@ namespace Samachar.Data.MSSQL.Configuration
         public void Configure(EntityTypeBuilder<Category> builder)
         {
             builder.HasKey(x => x.Id);
+            builder.Property(x=>x.Id).UseIdentityColumn();
             builder.Property(x => x.Name).IsRequired().HasColumnType("nvarchar(50)");
-            builder.Property(x => x.Image.Url).HasColumnType("nvarchar(100)").HasColumnName("Url");
-            builder.Property(x => x.Sequence).IsRequired().HasColumnType("int").UseIdentityColumn().HasDefaultValue(999);
-            //builder.HasOne(x => x.ParentCategory).WithMany(x => x.SubCategories).HasForeignKey(x => x.ParentCategoryId);
+            builder.Property(x => x.ImageUrl).HasColumnType("nvarchar(100)");
+            builder.Property(x => x.Sequence).IsRequired().HasColumnType("int").HasDefaultValue(999);
+            builder.HasOne(x => x.ParentCategory).WithMany(x => x.SubCategories).HasForeignKey(x => x.Id);
             builder.Property(x => x.IsActive).IsRequired().HasDefaultValue(true).HasColumnType("bit");
             builder.Property(x => x.IsDeleted).IsRequired().HasDefaultValue(false).HasColumnType("bit");
             builder.Property(x => x.CreatedOn).IsRequired().HasColumnType("datetime");

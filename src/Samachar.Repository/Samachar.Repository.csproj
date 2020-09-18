@@ -1,16 +1,18 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="LinqKit" Version="1.1.17" />
     <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="3.1.5" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="5.0.0-preview.6.20305.6" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DbProvider\Samachar.Data.SqlServer\Samachar.Data.SqlServer.csproj" />
+    <ProjectReference Include="..\DbProvider\Samachar.Data.MSSQL\Samachar.Data.MSSQL.csproj" />
+    <ProjectReference Include="..\Samachar.Core\Samachar.Core.csproj" />
   </ItemGroup>
 
 </Project>

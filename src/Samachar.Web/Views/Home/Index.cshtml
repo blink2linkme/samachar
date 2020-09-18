@@ -1,0 +1,9 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@await Component.InvokeAsync(nameof(Samachar.Web.ViewComponents.Headline))
+
+@await Component.InvokeAsync(nameof(Samachar.Web.ViewComponents.Feature))
+
+@await Component.InvokeAsync(nameof(Samachar.Web.ViewComponents.Entertainment))

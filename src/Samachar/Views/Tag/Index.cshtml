@@ -1,0 +1,76 @@
+﻿@model Samachar.Domain.ViewModels.TagsViewModel
+@{ ViewBag.Title = "Tag";
+    int i = 0; }
+<div class="card">
+    <div class="card-header">
+        Tag List
+        <a type="button" href="~/tag/add" class="btn btn-sm btn-primary float-right">Add Tag</a>
+    </div>
+    <div class="card-body">
+        <table class="table table-striped table-bordered table-hover" id="tblTag">
+            <thead>
+                <tr>
+                    <th>S.N.</th>
+                    <th>Name</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Tags.Any())
+                {
+                    @foreach (var tag in Model.Tags)
+                    {
+                        <tr class="gradeU">
+                            <td>@((Model.Rows * (Model.Page - 1)) + (++i))</td>
+                            <td><span class="">&nbsp;&nbsp;@tag.Name</span></td>
+                            <td class="center">@(tag.IsActive ? "Active" : "Inactive")</td>
+                            <td class="center">
+                                <a href="Tag/Update/@tag.Id" class="fGroup-edi" id="@tag.Id">Edit</a> | <a href="javascript:void(0);" class="fGroup-del" id="@tag.Id" onclick="javascript:xyx(@tag.Id)">Delete</a>
+                            </td>
+                        </tr>
+                    }
+
+                }
+                else
+                {
+                    <tr><td colspan="4"><p>There are no any records.</p></td></tr>
+                }
+            </tbody>
+        </table>
+        <div id="demo" class="pagination" data-pagination=""></div>
+    </div>
+</div>
+@section BreadCrum{
+    <li class="breadcrumb-item active">Tag </li>
+}
+@section Stylesheets{
+    <link rel="stylesheet" type="text/css" href="~/lib/simplePagination/simplePagination.css" />
+}
+@section Scripts{
+    <script type="text/javascript" src="~/lib/simplePagination/jquery.simplePagination.js"></script>
+    <script type="text/javascript">
+        var xyx;
+        $(function () {
+            $("#demo").pagination({
+                items: @Model.TotalRows,
+                itemsOnPage: @Model.Rows,
+                cssStyle: 'light-theme',
+                selectOnClick: false,
+                currentPage: @Model.Page,
+                hrefTextPrefix: '/tag?page=',
+                hrefTextSuffix: '&rows=',
+            });
+            xyx = function (id) {
+                if (confirm('Do you really want to delete this Tag?')) {
+                    $.ajax({
+                        url: '/tag/delete/' + id,
+                        success: function () {
+                            window.location.reload(false);
+                        }
+                    });
+                } else { return; }
+            };
+        });
+    </script>
+}

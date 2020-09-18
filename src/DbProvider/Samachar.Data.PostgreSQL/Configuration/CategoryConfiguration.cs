@@ -10,7 +10,7 @@ namespace Samachar.Data.PostgreSQL.Configuration
         {
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Name).IsRequired().HasColumnType("varchar(50)");
-            builder.Property(x => x.Image.Url).HasColumnType("varchar(100)");
+            builder.Property(x => x.ImageUrl).HasColumnType("varchar(100)");
             builder.Property(x => x.Sequence).IsRequired().HasColumnType("smallserial").HasDefaultValue(999);
             builder.HasOne(x => x.ParentCategory).WithMany(x => x.SubCategories).HasForeignKey(x => x.ParentCategoryId);
             builder.Property(x => x.IsActive).IsRequired().HasDefaultValue(true).HasColumnType("boolean");

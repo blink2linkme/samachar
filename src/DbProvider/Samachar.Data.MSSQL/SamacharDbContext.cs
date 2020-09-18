@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Samachar.Data.MSSQL.Configuration;
 using Samachar.Domain;
+using Samachar.Domain.User;
 
 namespace Samachar.Data.MSSQL
 {
@@ -14,17 +15,21 @@ namespace Samachar.Data.MSSQL
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-
             base.OnModelCreating(modelBuilder);
+            modelBuilder.ApplyConfiguration(new ApplicationUserConfiguration());
+            modelBuilder.ApplyConfiguration(new ApplicationRoleConfiguration());
             modelBuilder.ApplyConfiguration(new ArticleConfiguration());
             modelBuilder.ApplyConfiguration(new ArticleContentConfiguration());
+            modelBuilder.ApplyConfiguration(new ArticleTagsConfiguration());
             modelBuilder.ApplyConfiguration(new CategoryConfiguration());
-            modelBuilder.ApplyConfiguration(new ApplicationUserConfiguration());
         }
 
         public virtual DbSet<ApplicationUser> User { get; set; }
+        public virtual DbSet<ApplicationRole> Role { get; set; }
         public virtual DbSet<Category> Category { get; set; }
         public virtual DbSet<Article> Articles { get; set; }
         public virtual DbSet<ArticleContent> ArticleContents { get; set; }
+        public virtual DbSet<ArticleTags> ArticleTags { get; set; }
+        public virtual DbSet<Tag> Tags { get; set; }
     }
 }

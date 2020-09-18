@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Http;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Samachar.Domain
 {
@@ -8,6 +9,7 @@ namespace Samachar.Domain
     public class Image
     {
         public int Id { get; set; }
+        [NotMapped]
         public IFormFile Picture { get; set; }
         public string Url { get; set; }
         public string AltText { get; set; }

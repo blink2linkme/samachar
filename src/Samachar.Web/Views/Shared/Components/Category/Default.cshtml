@@ -1,0 +1,15 @@
+﻿@model ICollection<Samachar.Domain.Category>
+
+<div class="newsprk_nav stellarnav">
+    <ul id="newsprk_menu">
+        <li><a href="/">गृह</a></li>
+        <li><a href="#world">व्यापार</a></li>
+        <li><a href="#sports">मनोरञ्जन</a></li>
+        <li><a href="#sports">खेलकुद</a></li>
+        <li><a href="contact.html">यात्रा</a></li>
+        @foreach (var category in Model.Take(3))
+        {
+            <li><a href="/category/@category.Name">@category.Name</a></li>
+        }
+    </ul>
+</div>
